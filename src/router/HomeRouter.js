@@ -2,9 +2,9 @@ import { Router } from "express"
 const rotas = new Router()
 
 // Import Controllers
-import HomeCadastroController from '../controllers/Home/HomeCadastroController'
+import AlunoCadastroController from '../controllers/Home/AlunoCadastroController'
 
 // Rotas Home
-rotas.get('/', HomeCadastroController.index)
+rotas.post('/aluno-cadastro', AlunoCadastroController.index)
 
 export default rotas

@@ -4,6 +4,12 @@ import { Sequelize, Model } from "sequelize";
 class Alunos extends Model{
     static init(sequelize){
         super.init({
+            id_aluno: {
+                type: Sequelize.UUID,
+                primaryKey: true,
+                allowNull: false,
+                defaultValue: Sequelize.UUIDV4,
+            },
             nome_aluno:{
                 type: Sequelize.STRING,
             },
