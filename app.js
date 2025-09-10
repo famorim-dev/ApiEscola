@@ -8,7 +8,8 @@ dotenv.config();
 import connection from './src/models/indexModel'
 
 // import rotas
-import router from './src/router/HomeRouter'
+import homeRotas from './src/router/HomeRouter'
+import userRotas from './src/router/UserRoutes';
 
 
 class App{
@@ -22,12 +23,13 @@ class App{
         this.app.use(express.json())
     }
     router() {
-        this.app.use('/home', router)
+        this.app.use('/home', homeRotas)
+        this.app.use('/user', userRotas)
     }
     async connectBanco(){
         await connection.authenticate()
         console.log('sucesso ao conectar no banco')
-    }cath(e){
+    }cath(e) {
         console.log('erro ao conectar no banco', e)
         process.exit(1)
     }

@@ -3,8 +3,9 @@ import Config from '../config/db.cjs'
 
 // Import Models
 import Alunos from "./AlunoModel";
+import Usuarios from "./UsuarioModel"
 
-const models = [Alunos]
+const models = [Alunos, Usuarios]
 
 const connection = new Sequelize(Config)
 

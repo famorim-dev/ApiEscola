@@ -1,7 +1,7 @@
 import Usuarios from "../../models/UsuarioModel"
 
 class UsuarioCadastroController{
-    async index(req, res) {
+    async create(req, res) {
         try{
             const criarUsuario = {
             nome_usuario: req.body.nome_usuario,

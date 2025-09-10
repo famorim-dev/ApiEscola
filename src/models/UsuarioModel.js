@@ -36,9 +36,13 @@ class Usuarios extends Model{
                     }
                 }
             },
+            password_usuario_hash:{
+                type: Sequelize.STRING(100),
+                defaultValue: '',
+                
+            },
             password_usuario:{
                 type: Sequelize.VIRTUAL,
-                allowNull: false,
                 validate: {
                     notEmpty:{
                         msg: 'Senha é obrigatorio'
@@ -48,10 +52,6 @@ class Usuarios extends Model{
                         msg:'Senha deve ter mais de 6 caracteres'
                     }
                 }
-            },
-            password_usuario_hash:{
-                type: Sequelize.STRING(100),
-                allowNull: false,
             },
         },{
             sequelize,

@@ -1,12 +1,10 @@
 import { Router } from "express"
-const rotas = new Router()
+const homeRotas = new Router()
 
 // Import Controllers
 import AlunoCadastroController from '../controllers/Home/AlunoCadastroController'
-import UsuarioCadastroController from "../controllers/Usuarios/UsuarioCadastroController"
 
 // Rotas Home
-rotas.post('/aluno-cadastro', AlunoCadastroController.index)
-rotas.post('/usuario-cadastro', UsuarioCadastroController.index)
+homeRotas.post('/aluno-cadastro', AlunoCadastroController.index)
 
-export default rotas
+export default homeRotas
