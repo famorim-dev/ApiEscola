@@ -12,21 +12,36 @@ class Alunos extends Model{
             },
             nome_aluno:{
                 type: Sequelize.STRING,
+                allowNull: false,
+                validate: {
+                    notEmpty:{
+                        msg: 'Nome do aluno é obrigatorio'
+                    },
+                    len:{
+                        args: [3,100],
+                        msg:'Nome do aluno deve ter mais de 3 caracteres'
+                    }
+                }
             },
             idade_aluno: {
                 type: Sequelize.INTEGER,
+                allowNull: false,
             },
             peso_aluno:{
                 type: Sequelize.FLOAT,
+                allowNull: false,
             },
             altura_aluno:{
                 type: Sequelize.FLOAT,
+                allowNull: false,
             },
             email_aluno:{
                 type: Sequelize.STRING,
+                allowNull: false,
             },
             password_aluno:{
                 type: Sequelize.STRING(100),
+                allowNull: false,
             },
         },{
             sequelize,
