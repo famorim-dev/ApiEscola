@@ -1,0 +1,28 @@
+import Usuarios from "../../models/UsuarioModel"
+
+class UsuarioEditarController{
+    async update(req, res) {
+        try{
+            const id = req.params.id
+            console.log('ID recebido:', id)
+            const dados = req.body
+            if(!id){
+               return res.status(400).json({ erro: 'ID do usuário não fornecido.' })
+            }
+
+            const dadosUsuario = await Usuarios.findByPk(id)
+            if (!dadosUsuario){
+                return res.status(404).json({ erro: 'Usuário não encontrado.' })
+            }
+
+            await dadosUsuario.update(dados)
+            res.status(200).json(dadosUsuario)
+        }catch(e){
+            if (e.errors){
+                res.status(404).json(e.errors.map((err) => err.message))
+            }
+        }
+    }
+}
+
+export default new UsuarioEditarController()
