@@ -11,7 +11,7 @@ class UsuarioCadastroController{
             const dadosUsuario = await Usuarios.create(criarUsuario)
             res.status(201).json(dadosUsuario)
         }catch(e){
-            res.status(500).json(e)
+            res.status(400).json(e.errors.map((err) => err.message))
         }
     }
 }
