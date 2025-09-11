@@ -39,6 +39,7 @@ class Usuarios extends Model{
             password_usuario_hash:{
                 type: Sequelize.STRING(100),
                 defaultValue: '',
+                field: 'password_usuario',
                 
             },
             password_usuario:{
