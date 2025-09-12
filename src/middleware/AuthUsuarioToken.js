@@ -4,7 +4,7 @@ export default (req, res, next) =>{
     const {authorization} = req.headers
 
     if(!authorization){
-        return res.status(401).json('usuário não authenticado')
+        return res.status(401).json({errors: 'token expirado ou inválido'})
     }
     const [, token] = authorization.split(' ')
 
@@ -15,7 +15,7 @@ export default (req, res, next) =>{
         req.email_usuario = email_usuario
         return next()
     }catch(e){
-        res.status(400).json('token expirado ou inválido')
+        res.status(400).json({errors: 'token expirado ou inválido'})
     }
 
 }
