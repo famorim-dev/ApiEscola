@@ -8,7 +8,7 @@ dotenv.config();
 import connection from './src/models/indexModel'
 
 // import rotas
-import homeRotas from './src/router/HomeRouter'
+import AlunoRotas from './src/router/AlunoRouter'
 import userRotas from './src/router/UserRoutes';
 import authLoginRotas from './src/router/AuthLoginRouter';
 
@@ -24,7 +24,7 @@ class App{
         this.app.use(express.json())
     }
     router() {
-        this.app.use('/home', homeRotas)
+        this.app.use('/aluno', AlunoRotas)
         this.app.use('/user', userRotas)
         this.app.use('/auth', authLoginRotas)
     }
