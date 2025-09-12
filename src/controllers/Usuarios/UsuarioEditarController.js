@@ -4,12 +4,6 @@ class UsuarioEditarController{
     async update(req, res) {
         try{
             const id = req.params.id
-            console.log('ID recebido:', id)
-            const dados = req.body
-            if(!id){
-               return res.status(400).json({ erro: 'ID do usuário não fornecido.' })
-            }
-
             const dadosUsuario = await Usuarios.findByPk(id)
             if (!dadosUsuario){
                 return res.status(404).json({ erro: 'Usuário não encontrado.' })

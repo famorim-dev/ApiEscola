@@ -4,10 +4,6 @@ class UsuarioDeleteController{
     async delete(req, res) {
         try{
             const id = req.params.id
-             if(!id){
-               return res.status(400).json({ erro: 'ID do usuário não fornecido.' })
-            }
-
             const usuarioDeletado = await Usuarios.destroy({where: {id_usuario: id}})
             if(usuarioDeletado === 0 ){
                 return res.status(404).json({ erro: 'ID do usuário não encontrado.' })
