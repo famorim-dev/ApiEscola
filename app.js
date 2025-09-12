@@ -10,6 +10,7 @@ import connection from './src/models/indexModel'
 // import rotas
 import homeRotas from './src/router/HomeRouter'
 import userRotas from './src/router/UserRoutes';
+import authLoginRotas from './src/router/AuthLoginRouter';
 
 
 class App{
@@ -25,6 +26,7 @@ class App{
     router() {
         this.app.use('/home', homeRotas)
         this.app.use('/user', userRotas)
+        this.app.use('/auth', authLoginRotas)
     }
     async connectBanco(){
         await connection.authenticate()
