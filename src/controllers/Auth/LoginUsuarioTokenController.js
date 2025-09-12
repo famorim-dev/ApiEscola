@@ -1,5 +1,6 @@
 import Usuarios from "../../models/UsuarioModel"
 import bcrypt from "bcryptjs"
+import jwt from 'jsonwebtoken'
 
 class LoginUsuarioTokenController{
     async store(req, res) {
@@ -22,11 +23,14 @@ class LoginUsuarioTokenController{
                 return res.status(400).json('Senha inválida')
             }
             // Gerando Token
-            
+            const { id_usuario, email_usuario } = userEmailEnviado //pegando ID do usuario
+            const token = jwt.sign({id_usuario, email_usuario}, process.env.TOKEN_SECRET, {
+                expiresIn: process.env.TOKEN_EXPIRED
+            })
 
-            res.status(201).json('ok')
+            res.status(201).json({token})
         }catch(e){      
-            res.status(400).json(e)
+            res.status(400).json({error: e.message})
         }
     }
 }
