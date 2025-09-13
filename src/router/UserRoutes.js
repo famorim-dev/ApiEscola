@@ -2,7 +2,7 @@ import { Router } from "express"
 const userRotas = new Router()
 
 // Middleware
-import AuthUsuarioToken from "../middleware/AuthUsuarioToken" //Verifica se usuario está logado por token
+import VerificaUsuarioLogado from "../middleware/AuthUsuarioToken" //Verifica se usuario está logado por token
 import autorizarProprioUsuario from "../middleware/autorizarProprioUsuario" // Verifica se usuário é ele mesmo
 // Import Controllers
 import UsuarioCadastroController from "../controllers/Usuarios/UsuarioCadastroController"
@@ -11,7 +11,7 @@ import UsuarioDeletarController from "../controllers/Usuarios/UsuarioDeletarCont
 
 // Rotas
 userRotas.post('/cadastro', UsuarioCadastroController.create)
-userRotas.put('/editar/:id', AuthUsuarioToken, autorizarProprioUsuario, UsuarioEditarController.update)
-userRotas.delete('/deletar/:id', AuthUsuarioToken, autorizarProprioUsuario, UsuarioDeletarController.delete)
+userRotas.put('/editar/:id', VerificaUsuarioLogado, autorizarProprioUsuario, UsuarioEditarController.update)
+userRotas.delete('/deletar/:id', VerificaUsuarioLogado, autorizarProprioUsuario, UsuarioDeletarController.delete)
 
 export default userRotas

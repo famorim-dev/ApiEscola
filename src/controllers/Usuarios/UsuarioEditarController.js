@@ -9,9 +9,9 @@ class UsuarioEditarController{
                 return res.status(404).json({ erro: 'Usuário não encontrado.' })
             }
             
-            const dados = req.body
-            await dadosUsuario.update(dados)
-            res.status(200).json(dadosUsuario)
+            const dadosRecebidos = req.body
+            await dadosUsuario.update(dadosRecebidos)
+            res.status(200).json({mensagem: 'Usuario Editado com sucesso!'})
         }catch(e){
             if (e.errors){
                 res.status(404).json(e.errors.map((err) => err.message))

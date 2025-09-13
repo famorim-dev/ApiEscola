@@ -9,7 +9,7 @@ class UsuarioCadastroController{
             password_usuario: req.body.password_usuario,
             }
             const dadosUsuario = await Usuarios.create(criarUsuario)
-            res.status(201).json(dadosUsuario)
+            res.status(201).json({mensagem: 'Usuario Cadastrado com sucesso!'})
         }catch(e){
             res.status(400).json(e.errors.map((err) => err.message))
         }
