@@ -10,8 +10,8 @@ import UsuarioEditarController from "../controllers/Usuarios/UsuarioEditarContro
 import UsuarioDeletarController from "../controllers/Usuarios/UsuarioDeletarController"
 
 // Rotas
-userRotas.post('/cadastro',AuthUsuarioToken, UsuarioCadastroController.create)
-userRotas.put('/editar/',autorizarProprioUsuario,  AuthUsuarioToken, UsuarioEditarController.update)
-userRotas.delete('/deletar/',autorizarProprioUsuario, AuthUsuarioToken, UsuarioDeletarController.delete)
+userRotas.post('/cadastro', UsuarioCadastroController.create)
+userRotas.put('/editar/:id', AuthUsuarioToken, autorizarProprioUsuario, UsuarioEditarController.update)
+userRotas.delete('/deletar/:id', AuthUsuarioToken, autorizarProprioUsuario, UsuarioDeletarController.delete)
 
 export default userRotas
