@@ -15,7 +15,7 @@ export default (req, res, next) =>{
         req.email_usuario = email_usuario
         return next()
     }catch(e){
-        res.status(400).json({errors: 'token expirado ou inválido'})
+        return res.status(400).json({errors: 'token expirado ou inválido'})
     }
 
 }

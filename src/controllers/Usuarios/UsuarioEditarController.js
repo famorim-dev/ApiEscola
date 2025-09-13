@@ -8,7 +8,8 @@ class UsuarioEditarController{
             if (!dadosUsuario){
                 return res.status(404).json({ erro: 'Usuário não encontrado.' })
             }
-
+            
+            const dados = req.body
             await dadosUsuario.update(dados)
             res.status(200).json(dadosUsuario)
         }catch(e){
