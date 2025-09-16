@@ -13,7 +13,7 @@ class CadastroAlunoController{
             const dadosAluno = await Alunos.create(criarAluno)
             res.status(201).json({message: 'Aluno cadastrado com sucesso!'})
         }catch(e){
-            res.status(500).json({error: 'não foi possivel cadastrar o aluno'}, e)
+            res.status(500).json({error: 'não foi possivel cadastrar o aluno'})
         }
     }
 }

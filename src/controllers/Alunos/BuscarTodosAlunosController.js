@@ -16,7 +16,7 @@ class BuscarTodosAlunosController{
 
             res.status(200).json(dadosAlunos)
         }catch(e){
-            res.status(500).json({error: 'Não foi possivel buscar a lista de alunos'}, e)
+            res.status(500).json({error: 'Não foi possivel buscar a lista de alunos'})
         }
     }
 }
