@@ -30,10 +30,6 @@ module.exports = {
         unique: true,
         allowNull: false,
       },
-      password_aluno: {
-        type: Sequelize.STRING(100),
-        allowNull: false,
-      },
       created_at_aluno: {
         type: Sequelize.DATE,
         allowNull: false,

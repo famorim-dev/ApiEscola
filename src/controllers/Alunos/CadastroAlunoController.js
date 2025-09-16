@@ -1,7 +1,7 @@
 import Alunos from "../../models/AlunoModel"
 
-class AlunoCadastroController{
-    async index(req, res) {
+class CadastroAlunoController{
+    async create(req, res) {
         try{
             const criarAluno = {
             nome_aluno: req.body.nome_aluno,
@@ -9,14 +9,13 @@ class AlunoCadastroController{
             peso_aluno: req.body.peso_aluno,
             altura_aluno: req.body.altura_aluno,
             email_aluno: req.body.email_aluno,
-            password_aluno: req.body.password_aluno,
             }
             const dadosAluno = await Alunos.create(criarAluno)
-            res.status(201).json(dadosAluno)
+            res.status(201).json({message: 'Aluno cadastrado com sucesso!'})
         }catch(e){
-            res.status(500).json(e)
+            res.status(500).json({error: 'não foi possivel cadastrar o aluno'}, e)
         }
     }
 }
 
-export default new AlunoCadastroController()
+export default new CadastroAlunoController()

@@ -5,9 +5,12 @@ const AlunoRotas = new Router()
 import VerificaUsuarioLogado from "../middleware/AuthUsuarioToken"
 
 // Import Controllers
-import AlunoCadastroController from '../controllers/Alunos/AlunoCadastroController'
+import CadastroAlunoController from '../controllers/Alunos/CadastroAlunoController'
+import BuscarAlunoController from "../controllers/Alunos/BuscarAlunoController"
 
 // Rotas Home
-AlunoRotas.post('/cadastro',VerificaUsuarioLogado, AlunoCadastroController.index)
+AlunoRotas.post('/cadastro',VerificaUsuarioLogado, CadastroAlunoController.create)
+AlunoRotas.get('/buscar/:id', VerificaUsuarioLogado, BuscarAlunoController.index)
+
 
 export default AlunoRotas
