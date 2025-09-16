@@ -6,11 +6,14 @@ import VerificaUsuarioLogado from "../middleware/AuthUsuarioToken"
 
 // Import Controllers
 import CadastroAlunoController from '../controllers/Alunos/CadastroAlunoController'
-import BuscarAlunoController from "../controllers/Alunos/BuscarAlunoController"
+import EditarAlunoController from "../controllers/Alunos/EditarAlunoController"
+import BuscarTodosAlunosController from "../controllers/Alunos/BuscarTodosAlunosController"
 
 // Rotas Home
 AlunoRotas.post('/cadastro',VerificaUsuarioLogado, CadastroAlunoController.create)
-AlunoRotas.get('/buscar/:id', VerificaUsuarioLogado, BuscarAlunoController.index)
+AlunoRotas.get('/editar/:id', VerificaUsuarioLogado, EditarAlunoController.update)
+AlunoRotas.get('/buscar', VerificaUsuarioLogado, BuscarTodosAlunosController.index)
+
 
 
 export default AlunoRotas
