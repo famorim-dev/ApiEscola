@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors'
 
 //banco config
 import dotenv from 'dotenv';
@@ -22,6 +23,7 @@ class App{
     }
     middleware() {
         this.app.use(express.json())
+        this.app.use(cors())
     }
     router() {
         this.app.use('/aluno', AlunoRotas)
